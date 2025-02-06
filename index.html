@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>袖ケ浦フォレストレースウェイ - Sodegaura Forest Raceway</title>
+    <meta name="description" content="千葉県袖ケ浦市にある本格的なレーシングコース。モータースポーツイベント、スポーツ走行、ドライビングスクールなど、様々な目的でご利用いただけます。">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --nurburgring-red: #e30613;
+            --nurburgring-dark: #1a1a1a;
+            --nurburgring-gray: #333333;
+            --nurburgring-light: #f5f5f5;
+            --nurburgring-white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--nurburgring-white);
+            color: var(--nurburgring-dark);
+        }
+
+        /* レスポンシブデザイン */
+        @media screen and (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+            }
+
+            .nav-items {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-image img {
+                height: 50vh;
+                object-fit: cover;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ニュルブルクリンクスタイルのニュースセクション */
+        .news.nurburgring-style {
+            background: var(--nurburgring-light);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-item.featured {
+            background: var(--nurburgring-white);
+        }
+
+        .news-secondary {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* ヘッダースタイル */
+        .site-header {
+            background: var(--nurburgring-dark);
+            color: var(--nurburgring-white);
+        }
+
+        .header-top {
+            background: var(--nurburgring-gray);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .weather-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .temperature::before {
+            content: '🌡️';
+            margin-right: 0.5rem;
+        }
+
+        .contact-info {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 2rem;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .lang-switch a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .lang-switch a.active,
+        .lang-switch a:hover {
+            opacity: 1;
+        }
+
+        /* ナビゲーションの更新 */
+        .main-nav {
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
+            border-bottom: 3px solid var(--nurburgring-red);
+        }
+
+        .logo {
+            width: 200px;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            background: var(--nurburgring-dark);
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .nav-items li {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .nav-items li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-items a {
+            color: var(--nurburgring-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-items a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--nurburgring-red);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .nav-items a:hover {
+            color: var(--nurburgring-white);
+            background: rgba(227, 6, 19, 0.1);
+        }
+
+        .nav-items a:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* モバイルナビゲーションの更新 */
+        @media screen and (max-width: 768px) {
+            .main-nav {
+                padding: 0;
+            }
+
+            .logo {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-items {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nurburgring-dark);
+                flex-direction: column;
+                display: none;
+                z-index: 1000;
+            }
+
+            .nav-items li::after {
+                display: none;
+            }
+
+            .nav-items a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-items a::before {
+                display: none;
+            }
+
+            .nav-items a:hover {
+                background: var(--nurburgring-red);
+            }
+
+            .nav-items.active {
+                display: flex;
+            }
+        }
+
+        /* フィーチャーセクション */
+        .features {
+            background: var(--nurburgring-light);
+        }
+
+        .feature-card {
+            background: var(--nurburgring-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            background: var(--nurburgring-red);
+            color: var(--nurburgring-white);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #cc0000;
+        }
+
+        h2 {
+            color: var(--nurburgring-dark);
+            border-left: 4px solid var(--nurburgring-red);
+            padding-left: 1rem;
+        }
+
+        /* フッター */
+        .site-footer {
+            background: var(--nurburgring-dark);
+            color: var(--nurburgring-white);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            border-bottom: 1px solid var(--nurburgring-gray);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+
+        /* メインビジュアルのスタイル追加 */
+        .hero-slider {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--nurburgring-white);
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .hero-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .hero-btn.primary {
+            background: var(--nurburgring-red);
+            color: var(--nurburgring-white);
+        }
+
+        .hero-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--nurburgring-white);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--nurburgring-white);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* フルスクリーン画像セクションのスタイル */
+        .fullscreen-image-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 1;
+        }
+
+        .fullscreen-image-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fullscreen-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--nurburgring-white);
+            padding: 2rem;
+        }
+
+        .fullscreen-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .fullscreen-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--nurburgring-red);
+            color: var(--nurburgring-white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #b30000;
+        }
+
+        /* イベントセクションのスタイル */
+        .events-section {
+            padding: 4rem 2rem;
+            background: var(--nurburgring-white);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .event-card {
+            background: var(--nurburgring-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-date {
+            color: var(--nurburgring-red);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: var(--nurburgring-dark);
+        }
+
+        .event-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--nurburgring-dark);
+            text-transform: uppercase;
+            border: none;
+            padding: 0;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SNSセクションのスタイル */
+        .social-section {
+            background: var(--nurburgring-dark);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--nurburgring-white);
+        }
+
+        .social-section h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border: none;
+            color: var(--nurburgring-white);
+        }
+
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--nurburgring-white);
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--nurburgring-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .social-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .social-description {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .social-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダーナビゲーション -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="weather-info">
+                <!-- 天候情報 -->
+                <span class="temperature">20°C</span>
+            </div>
+            <div class="contact-info">
+                <span class="phone">0438-75-7363</span>
+            </div>
+            <div class="lang-switch">
+                <a href="#" class="active">日本語</a>
+                <a href="#">English</a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="images/logo.png" alt="Sodegaura Forest Raceway">
+                </a>
+            </div>
+            <ul class="nav-items">
+                <li><a href="#info">INFORMATION</a></li>
+                <li><a href="#events">EVENTS</a></li>
+                <li><a href="#driving">DRIVING</a></li>
+                <li><a href="#experience">FACILITIES</a></li>
+                <li><a href="#business">BUSINESS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインビジュアル -->
+    <div class="hero-slider">
+        <div class="hero-overlay"></div>
+        <div class="hero-image">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNZzJqGlpjNNhxNYTPVVPTL9xRcmwse-LZVRVNH=s1360-w1360-h1020" 
+                 alt="Sodegaura Forest Raceway aerial view">
+        </div>
+        <div class="hero-content">
+            <h1>Experience the Thrill</h1>
+            <p>Welcome to Sodegaura Forest Raceway<br>
+               A World-Class Racing Circuit in Harmony with Nature</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="hero-btn primary">Book Track Day</a>
+                <a href="#virtual-tour" class="hero-btn secondary">Virtual Tour</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- フィーチャーセクション -->
+        <section class="features">
+            <div class="feature-card course-info">
+                <h2>Circuit Features</h2>
+                <div class="feature-content">
+                    <p class="en">
+                        A FIA-standard and JAF-certified racing circuit designed with environmental consciousness, 
+                        featuring a 30-meter forest buffer zone and 10,000 newly planted trees. 
+                        The facility accommodates various motorsport activities including:
+                    </p>
+                    <ul>
+                        <li>Sports driving sessions</li>
+                        <li>Two and four-wheel racing events</li>
+                        <li>Cycling competitions</li>
+                        <li>Vehicle and tire testing</li>
+                        <li>Photography sessions</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <!-- 他のフィーチャーカード -->
+        </section>
+
+        <!-- ライブカメラ -->
+        <section class="live-cameras">
+            <h2>ライブカメラ</h2>
+            <div class="camera-feeds">
+                <!-- カメラフィード -->
+            </div>
+        </section>
+
+        <!-- ニュースセクション (ニュルブルクリンクスタイル) -->
+        <section class="news nurburgring-style">
+            <h2>Latest News</h2>
+            <div class="news-grid">
+                <article class="news-item featured">
+                    <!-- メインニュース -->
+                </article>
+                <div class="news-secondary">
+                    <!-- サブニュース -->
+                </div>
+            </div>
+        </section>
+
+        <!-- フルスクリーン画像セクション -->
+        <section class="fullscreen-image-section">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipN7sa3RcUhbUzEtNqEetncxHrRPvaykUVfKBlzH=s1360-w1360-h1020" alt="袖ケ浦フォレストレースウェイの空撮">
+            <div class="fullscreen-content">
+                <h2>Experience the Thrill</h2>
+                <p>日本有数のテクニカルコースで、モータースポーツの真髄を体験してください。プロフェッショナルからアマチュアまで、全てのドライバーに最高の走行環境を提供します。</p>
+                <a href="#events" class="cta-button">イベント情報を見る</a>
+            </div>
+        </section>
+
+        <!-- イベントセクション -->
+        <section class="events-section">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Experience the excitement of motorsports at Sodegaura Forest Raceway with our diverse range of events</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="images/track-day.jpg" alt="Track Day Event">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">MAY 15, 2024</div>
+                        <h3 class="event-title">Advanced Track Day</h3>
+                        <p class="event-description">Join our premium track day event for experienced drivers. Professional instructors available for personalized coaching.</p>
+                        <a href="#" class="btn">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="images/racing-school.jpg" alt="Racing School">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">JUNE 1-2, 2024</div>
+                        <h3 class="event-title">Racing School Weekend</h3>
+                        <p class="event-description">Two-day intensive racing course covering advanced techniques, vehicle dynamics, and race craft.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="images/championship.jpg" alt="Championship Race">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">JUNE 22-23, 2024</div>
+                        <h3 class="event-title">Super GT Testing</h3>
+                        <p class="event-description">Witness professional teams testing their machines for the upcoming Super GT season.</p>
+                        <a href="#" class="btn">Get Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SNSセクション -->
+        <section class="social-section">
+            <h2>Connect With Us</h2>
+            <div class="social-links-grid">
+                <a href="#" class="social-link">
+                    <div class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span class="social-name">Facebook</span>
+                    <span class="social-description">Latest Updates & Events</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span class="social-name">Instagram</span>
+                    <span class="social-description">Behind the Scenes</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="social-name">YouTube</span>
+                    <span class="social-description">Race Highlights & Reviews</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <span class="social-name">Twitter</span>
+                    <span class="social-description">Real-time Updates</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <!-- フッターナビゲーション -->
+            </div>
+            <div class="social-links">
+                <!-- SNSリンク -->
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Sodegaura Forest Raceway. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
