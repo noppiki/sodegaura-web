@@ -50,7 +50,36 @@
 
         /* ニュルブルクリンクスタイルのニュースセクション */
         .news.nurburgring-style {
+            padding: 4rem 2rem;
             background: var(--nurburgring-light);
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--nurburgring-dark);
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .news h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--nurburgring-red);
         }
 
         .news-grid {
@@ -59,14 +88,129 @@
             gap: 2rem;
         }
 
-        .news-item.featured {
+        .news-item {
             background: var(--nurburgring-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-item.featured {
+            position: relative;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--nurburgring-red);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.5rem;
+            color: var(--nurburgring-dark);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .news-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--nurburgring-red);
+            text-decoration: none;
+            font-weight: bold;
+            transition: gap 0.3s;
+        }
+
+        .news-link:hover {
+            gap: 1rem;
         }
 
         .news-secondary {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+
+        .news-secondary .news-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .news-secondary .news-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+
+        .news-secondary .news-content {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .news-secondary .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-secondary .news-date {
+            font-size: 0.9rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: var(--nurburgring-red);
+            color: var(--nurburgring-white);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-secondary .news-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-secondary .news-image {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 1rem;
+            }
+
+            .news-secondary .news-content {
+                padding: 1rem 0 0 0;
+            }
         }
 
         /* ヘッダースタイル */
@@ -245,35 +389,150 @@
             }
         }
 
-        /* フィーチャーセクション */
+        /* フィーチャーセクションのスタイル */
         .features {
+            padding: 4rem 2rem;
             background: var(--nurburgring-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://lh3.googleusercontent.com/p/AF1QipNZzJqGlpjNNhxNYTPVVPTL9xRcmwse-LZVRVNH=s1360-w1360-h1020') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .features-header h2 {
+            font-size: 2.5rem;
+            color: var(--nurburgring-dark);
+            text-transform: uppercase;
+            border: none;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .features-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--nurburgring-red);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
         .feature-card {
             background: var(--nurburgring-white);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            padding: 2rem;
         }
 
-        .btn {
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--nurburgring-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--nurburgring-white);
+            font-size: 1.8rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--nurburgring-dark);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--nurburgring-red);
+            font-weight: bold;
+        }
+
+        .feature-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
             background: var(--nurburgring-red);
             color: var(--nurburgring-white);
-            padding: 0.8rem 1.5rem;
             text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            transition: background-color 0.3s;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        .btn:hover {
-            background: #cc0000;
+        .feature-btn:hover {
+            background: #b30000;
         }
 
-        h2 {
-            color: var(--nurburgring-dark);
-            border-left: 4px solid var(--nurburgring-red);
-            padding-left: 1rem;
+        @media screen and (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                margin-bottom: 1.5rem;
+            }
         }
 
         /* フッター */
@@ -614,6 +873,217 @@
                 gap: 1.5rem;
             }
         }
+
+        /* ライブカメラセクションのスタイル */
+        .live-cameras {
+            padding: 4rem 2rem;
+            background: var(--nurburgring-dark);
+            color: var(--nurburgring-white);
+        }
+
+        .live-cameras-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .live-cameras h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--nurburgring-white);
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .live-cameras h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--nurburgring-red);
+        }
+
+        .camera-feeds {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .camera-feed {
+            position: relative;
+            background: var(--nurburgring-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .camera-feed-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .camera-title {
+            color: var(--nurburgring-white);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .camera-title i {
+            color: var(--nurburgring-red);
+        }
+
+        .camera-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .camera-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .camera-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            color: var(--nurburgring-white);
+        }
+
+        .camera-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .camera-feeds {
+                grid-template-columns: 1fr;
+            }
+
+            .camera-feed {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* モバイルメニューボタン */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--nurburgring-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--nurburgring-red);
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .nav-items {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--nurburgring-dark);
+                flex-direction: column;
+                padding-top: 4rem;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            }
+
+            .nav-items.active {
+                left: 0;
+            }
+
+            .nav-items li {
+                width: 100%;
+            }
+
+            .nav-items a {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                width: 100%;
+                display: block;
+            }
+
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 1000;
+            }
+
+            .nav-overlay.active {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -639,6 +1109,10 @@
                     <img src="images/logo.png" alt="Sodegaura Forest Raceway">
                 </a>
             </div>
+            <button class="mobile-menu-btn" aria-label="メニューを開く">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay"></div>
             <ul class="nav-items">
                 <li><a href="#info">INFORMATION</a></li>
                 <li><a href="#events">EVENTS</a></li>
@@ -671,44 +1145,200 @@
     <main>
         <!-- フィーチャーセクション -->
         <section class="features">
-            <div class="feature-card course-info">
-                <h2>Circuit Features</h2>
-                <div class="feature-content">
-                    <p class="en">
-                        A FIA-standard and JAF-certified racing circuit designed with environmental consciousness, 
-                        featuring a 30-meter forest buffer zone and 10,000 newly planted trees. 
-                        The facility accommodates various motorsport activities including:
-                    </p>
-                    <ul>
-                        <li>Sports driving sessions</li>
-                        <li>Two and four-wheel racing events</li>
-                        <li>Cycling competitions</li>
-                        <li>Vehicle and tire testing</li>
-                        <li>Photography sessions</li>
-                    </ul>
+            <div class="features-container">
+                <div class="features-header">
+                    <h2>Circuit Features</h2>
                 </div>
-                <a href="#" class="btn">Learn More</a>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3 class="feature-title">コース仕様</h3>
+                        <p class="feature-description">
+                            FIA基準とJAF公認の本格的レーシングコース。環境に配慮した30mの森林緩衝帯と10,000本の新植樹を備えた施設です。
+                        </p>
+                        <ul class="feature-list">
+                            <li>全長: 2.4km</li>
+                            <li>最大直線: 600m</li>
+                            <li>最大幅: 15m</li>
+                            <li>最小幅: 12m</li>
+                        </ul>
+                        <a href="#course-details" class="feature-btn">詳細を見る</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <h3 class="feature-title">利用形態</h3>
+                        <p class="feature-description">
+                            様々なモータースポーツ活動に対応した多目的な利用が可能です。
+                        </p>
+                        <ul class="feature-list">
+                            <li>スポーツ走行セッション</li>
+                            <li>二輪・四輪レース</li>
+                            <li>自転車競技</li>
+                            <li>車両・タイヤテスト</li>
+                            <li>撮影セッション</li>
+                        </ul>
+                        <a href="#activities" class="feature-btn">利用案内</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="feature-title">施設設備</h3>
+                        <p class="feature-description">
+                            快適なレース環境を提供する充実した施設を完備しています。
+                        </p>
+                        <ul class="feature-list">
+                            <li>ピットガレージ</li>
+                            <li>パドック施設</li>
+                            <li>タイヤサービス</li>
+                            <li>レストラン</li>
+                            <li>シャワー室</li>
+                        </ul>
+                        <a href="#facilities" class="feature-btn">施設案内</a>
+                    </div>
+                </div>
             </div>
-            <!-- 他のフィーチャーカード -->
         </section>
 
         <!-- ライブカメラ -->
         <section class="live-cameras">
-            <h2>ライブカメラ</h2>
-            <div class="camera-feeds">
-                <!-- カメラフィード -->
+            <div class="live-cameras-container">
+                <h2>ライブカメラ</h2>
+                <div class="camera-feeds">
+                    <div class="camera-feed">
+                        <div class="camera-feed-header">
+                            <div class="camera-title">
+                                <i class="fas fa-video"></i>
+                                <span>メインストレート</span>
+                            </div>
+                            <div class="camera-status">
+                                <div class="status-dot"></div>
+                                <span>LIVE</span>
+                            </div>
+                        </div>
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipPPZr3BjYBgQE3Lk0vHHrUiGHAYl-uZzV_iRq_h=s1360-w1360-h1020" 
+                             alt="メインストレートライブビュー" 
+                             class="camera-image">
+                        <div class="camera-overlay">
+                            <div class="camera-info">
+                                <span><i class="fas fa-temperature-high"></i> 気温: 22°C</span>
+                                <span><i class="fas fa-cloud"></i> 天候: 晴れ</span>
+                                <span><i class="fas fa-clock"></i> 更新: リアルタイム</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="camera-feed">
+                        <div class="camera-feed-header">
+                            <div class="camera-title">
+                                <i class="fas fa-video"></i>
+                                <span>ヘアピンコーナー</span>
+                            </div>
+                            <div class="camera-status">
+                                <div class="status-dot"></div>
+                                <span>LIVE</span>
+                            </div>
+                        </div>
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMGFD3z3_wHdFmV4lKD_VFFpP3KzPE0oGy5p0Ks=s1360-w1360-h1020" 
+                             alt="ヘアピンコーナーライブビュー" 
+                             class="camera-image">
+                        <div class="camera-overlay">
+                            <div class="camera-info">
+                                <span><i class="fas fa-temperature-high"></i> 気温: 22°C</span>
+                                <span><i class="fas fa-cloud"></i> 天候: 晴れ</span>
+                                <span><i class="fas fa-clock"></i> 更新: リアルタイム</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ニュースセクション (ニュルブルクリンクスタイル) -->
         <section class="news nurburgring-style">
-            <h2>Latest News</h2>
-            <div class="news-grid">
-                <article class="news-item featured">
-                    <!-- メインニュース -->
-                </article>
-                <div class="news-secondary">
-                    <!-- サブニュース -->
+            <div class="news-container">
+                <h2>Latest News</h2>
+                <div class="news-grid">
+                    <article class="news-item featured">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipPPZr3BjYBgQE3Lk0vHHrUiGHAYl-uZzV_iRq_h=s1360-w1360-h1020" 
+                             alt="スーパーGT特別戦" 
+                             class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">イベント</span>
+                            <div class="news-date">
+                                <i class="far fa-calendar"></i>
+                                2024年5月15日
+                            </div>
+                            <h3 class="news-title">スーパーGT特別戦 開催決定！</h3>
+                            <p class="news-excerpt">
+                                今年も袖ケ浦フォレストレースウェイにて、スーパーGT特別戦が開催されることが決定しました。
+                                国内外のトップドライバーたちが集結し、熱い戦いを繰り広げます。
+                                早期前売りチケットは4月1日より販売開始予定です。
+                            </p>
+                            <a href="#" class="news-link">
+                                詳細を見る
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <div class="news-secondary">
+                        <article class="news-item">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMGFD3z3_wHdFmV4lKD_VFFpP3KzPE0oGy5p0Ks=s1360-w1360-h1020" 
+                                 alt="ドライビングスクール" 
+                                 class="news-image">
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i>
+                                    2024年4月1日
+                                </div>
+                                <h3 class="news-title">春季ドライビングスクール 参加者募集開始</h3>
+                                <a href="#" class="news-link">
+                                    詳細を見る
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="news-item">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipN7sa3RcUhbUzEtNqEetncxHrRPvaykUVfKBlzH=s1360-w1360-h1020" 
+                                 alt="施設メンテナンス" 
+                                 class="news-image">
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i>
+                                    2024年3月25日
+                                </div>
+                                <h3 class="news-title">コース路面改修工事完了のお知らせ</h3>
+                                <a href="#" class="news-link">
+                                    詳細を見る
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="news-item">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNZzJqGlpjNNhxNYTPVVPTL9xRcmwse-LZVRVNH=s1360-w1360-h1020" 
+                                 alt="レンタルカート" 
+                                 class="news-image">
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i>
+                                    2024年3月20日
+                                </div>
+                                <h3 class="news-title">レンタルカートの新車両導入について</h3>
+                                <a href="#" class="news-link">
+                                    詳細を見る
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -822,6 +1452,34 @@
         </div>
     </footer>
 
-    <script src="./js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navItems = document.querySelector('.nav-items');
+            const navOverlay = document.querySelector('.nav-overlay');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                navItems.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                mobileMenuBtn.innerHTML = isMenuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-label', isMenuOpen ? 'メニューを閉じる' : 'メニューを開く');
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            navOverlay.addEventListener('click', toggleMenu);
+
+            // メニュー項目をクリックしたときにメニューを閉じる
+            const menuLinks = document.querySelectorAll('.nav-items a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) {
+                        toggleMenu();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
