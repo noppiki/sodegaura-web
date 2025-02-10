@@ -6,36 +6,176 @@
 /* ヒーローセクション */
 .hero-section {
     position: relative;
-    height: 100vh;
-    padding-top: 120px; /* ヘッダーの高さ分を確保 */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('../images/start.png');
+    height: 80vh;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    margin-top: -120px; /* ヘッダーの高さ分を相殺 */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
-    padding: 0 20px;
-    margin-top: 60px; /* コンテンツを少し下げる */
+    padding: 2rem;
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    background: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+}
+
+/* パララックスセクション */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.2;
+}
+
+/* モダンレイアウト */
+.modern-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* スプリットレイアウト */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.split-image {
+    background-size: cover;
+    background-position: center;
+}
+
+.split-content {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+}
+
+.stacked-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* 装備セクション */
+.equipment-section {
+    position: relative;
+    background: #2a2a2a;
+    color: white;
+}
+
+.equipment-section .section-title {
+    color: white;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, rgba(42, 42, 42, 0.9) 0%, rgba(42, 42, 42, 0.7) 100%);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 0 auto 3rem;
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    mix-blend-mode: overlay;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* 装備セクションのカードスタイル調整 */
+.equipment-section .content-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.equipment-section .card-header {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.equipment-section .card-content {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.equipment-section .feature-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.equipment-section .notes p {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* コンテンツセクション共通 */
@@ -143,19 +283,50 @@
 
 /* 予約フォームセクション */
 .booking-section {
-    background: #1a1a1a;
+    background: #2a2a2a;
     color: white;
     padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.booking-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 77, 77, 0.1), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.booking-section .section-title {
+    color: white;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
 }
 
 .booking-content {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .booking-description {
     margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .contact-info {
@@ -169,14 +340,36 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-info div:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .contact-info i {
     font-size: 1.5rem;
+    color: #ff4d4d;
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .split-image {
+        height: 300px;
+    }
+
     .content-grid {
         grid-template-columns: 1fr;
     }

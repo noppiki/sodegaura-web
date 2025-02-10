@@ -76,15 +76,18 @@ body {
     align-items: center;
 }
 
+/* ロゴスタイル */
 .logo {
-    width: 200px;
+    width: 300px;
     padding: 1rem 2rem;
     background: var(--nurburgring-dark);
+    transition: all 0.3s ease;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .nav-items {
@@ -377,6 +380,11 @@ body {
 
     .section-header h2 {
         font-size: 2rem;
+    }
+
+    .logo {
+        width: 200px;
+        padding: 0.5rem 1rem;
     }
 }
 

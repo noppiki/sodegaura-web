@@ -47,19 +47,22 @@
     <!-- メインコンテンツ -->
     <main>
         <!-- ヒーローセクション -->
-        <section class="hero-section">
+        <section class="hero-section" style="background-image: url('./images/hero-driving.jpg');">
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Experience the Thrill of Racing</h1>
+                <h1>Unleash Your Racing Spirit</h1>
                 <p>プロフェッショナルなレーシング環境で、あなたのドライビングスキルを磨きましょう</p>
+                <a href="#sport-driving" class="cta-button">詳しく見る</a>
             </div>
         </section>
 
         <!-- スポーツ走行セクション -->
-        <section id="sport-driving" class="content-section">
+        <section id="sport-driving" class="content-section parallax-section">
+            <div class="parallax-bg" style="background-image: url('./images/sport-driving-bg.jpg');"></div>
             <div class="section-container">
-                <h2 class="section-title">スポーツ走行</h2>
-                <div class="content-grid">
-                    <div class="content-card">
+                <h2 class="section-title light">スポーツ走行</h2>
+                <div class="content-grid modern-layout">
+                    <div class="content-card glass-effect">
                         <div class="card-header">
                             <i class="fas fa-car-side"></i>
                             <h3>ライセンス取得</h3>
@@ -84,7 +87,7 @@
                         </div>
                     </div>
 
-                    <div class="content-card">
+                    <div class="content-card glass-effect">
                         <div class="card-header">
                             <i class="fas fa-trophy"></i>
                             <h3>走行料金</h3>
@@ -111,56 +114,59 @@
         </section>
 
         <!-- ドライビングスクールセクション -->
-        <section id="driving-school" class="content-section bg-light">
-            <div class="section-container">
-                <h2 class="section-title">ドライビングスクール</h2>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>ライセンス講習会</h3>
-                        </div>
-                        <div class="card-content">
-                            <p>JAF公認ライセンス（国内B級）取得のための講習会です。</p>
-                            <ul class="feature-list">
-                                <li>開催日: 毎月第2日曜日</li>
-                                <li>受付時間: 8:00〜8:30</li>
-                                <li>講習時間: 9:00〜16:00</li>
-                                <li>定員: 20名</li>
-                            </ul>
-                            <div class="requirements">
-                                <h4>必要なもの</h4>
-                                <ul>
-                                    <li>普通自動車運転免許証</li>
-                                    <li>JAF会員証（当日入会可）</li>
-                                    <li>写真2枚（3×2.4cm）</li>
-                                    <li>昼食</li>
-                                    <li>筆記用具</li>
-                                </ul>
+        <section id="driving-school" class="content-section split-layout">
+            <div class="split-image" style="background-image: url('./images/driving-school-hero.jpg');"></div>
+            <div class="split-content">
+                <div class="section-container">
+                    <h2 class="section-title">ドライビングスクール</h2>
+                    <div class="content-grid stacked-layout">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>ライセンス講習会</h3>
                             </div>
-                            <div class="price">受講料: ¥22,000-（税込）</div>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <div class="card-header">
-                            <i class="fas fa-car"></i>
-                            <h3>レンタルカート走行</h3>
-                        </div>
-                        <div class="card-content">
-                            <p>初心者から上級者まで楽しめるレンタルカートサービスです。</p>
-                            <ul class="feature-list">
-                                <li>走行時間: 1セッション10分</li>
-                                <li>最低身長: 140cm以上</li>
-                                <li>装備: ヘルメット無料貸出</li>
-                                <li>予約: 不要（当日受付）</li>
-                            </ul>
-                            <div class="price">
-                                <p>料金（1セッション）:</p>
-                                <ul>
-                                    <li>平日: ¥2,200-</li>
-                                    <li>土日祝: ¥2,500-</li>
+                            <div class="card-content">
+                                <p>JAF公認ライセンス（国内B級）取得のための講習会です。</p>
+                                <ul class="feature-list">
+                                    <li>開催日: 毎月第2日曜日</li>
+                                    <li>受付時間: 8:00〜8:30</li>
+                                    <li>講習時間: 9:00〜16:00</li>
+                                    <li>定員: 20名</li>
                                 </ul>
+                                <div class="requirements">
+                                    <h4>必要なもの</h4>
+                                    <ul>
+                                        <li>普通自動車運転免許証</li>
+                                        <li>JAF会員証（当日入会可）</li>
+                                        <li>写真2枚（3×2.4cm）</li>
+                                        <li>昼食</li>
+                                        <li>筆記用具</li>
+                                    </ul>
+                                </div>
+                                <div class="price">受講料: ¥22,000-（税込）</div>
+                            </div>
+                        </div>
+
+                        <div class="content-card">
+                            <div class="card-header">
+                                <i class="fas fa-car"></i>
+                                <h3>レンタルカート走行</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>初心者から上級者まで楽しめるレンタルカートサービスです。</p>
+                                <ul class="feature-list">
+                                    <li>走行時間: 1セッション10分</li>
+                                    <li>最低身長: 140cm以上</li>
+                                    <li>装備: ヘルメット無料貸出</li>
+                                    <li>予約: 不要（当日受付）</li>
+                                </ul>
+                                <div class="price">
+                                    <p>料金（1セッション）:</p>
+                                    <ul>
+                                        <li>平日: ¥2,200-</li>
+                                        <li>土日祝: ¥2,500-</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,10 +175,11 @@
         </section>
 
         <!-- レンタルサービスセクション -->
-        <section id="rental-service" class="content-section">
+        <section id="rental-service" class="content-section equipment-section">
+            <div class="bg-pattern" style="background-image: url('./images/rental-equipment-bg.jpg');"></div>
             <div class="section-container">
                 <h2 class="section-title">レンタル装備</h2>
-                <div class="content-grid">
+                <div class="equipment-grid">
                     <div class="content-card">
                         <div class="card-header">
                             <i class="fas fa-helmet-safety"></i>
