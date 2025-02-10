@@ -377,10 +377,300 @@
         align-items: center;
         text-align: center;
         gap: 1rem;
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .map-info-item div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-info-item h4 {
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .map-info-item p {
+        margin: 0.5rem 0;
+        width: 100%;
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .map-info-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .map-info-card {
+        padding: 2rem 1rem;
     }
 
     .map-container iframe {
         height: 300px;
+    }
+
+    /* コースインフォメーションのモバイル対応 */
+    .split-container {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .content-side {
+        width: 100%;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0;
+    }
+
+    .info-specs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem 0;
+        padding: 0;
+    }
+
+    .info-specs li {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .image-side {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 2rem;
+    }
+
+    .access-grid {
+        display: block;
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .access-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: white;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .access-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .access-info-box {
+        width: 100%;
+        margin: 1.5rem 0 0 0;
+        padding: 2rem 1.5rem;
+    }
+
+    .info-row {
+        padding: 0.8rem;
+        font-size: 1rem;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .info-row i {
+        font-size: 1.2rem;
+    }
+
+    /* 全体的なテキストサイズの調整 */
+    .info-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .spec-label {
+        font-size: 0.9rem;
+    }
+
+    .spec-value {
+        font-size: 0.9rem;
+    }
+
+    /* アクセスインフォメーションのモバイル対応 */
+    .diagonal-container {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .diagonal-content {
+        width: 100%;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+        transform: none;
+        text-align: center;
+        margin: 0;
+        background: var(--nurburgring-light);
+    }
+
+    .diagonal-content::after {
+        display: none;
+    }
+
+    .diagonal-image {
+        width: 100%;
+        height: 250px;
+        margin-top: 1rem;
+        transform: none;
+    }
+
+    .access-grid {
+        display: block;
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .access-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: white;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .access-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .access-icon {
+        margin: 0 auto 1.5rem;
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .access-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .access-card ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .access-card li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .access-info-box {
+        width: 100%;
+        margin: 1.5rem 0 0 0;
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-row {
+        padding: 0.8rem;
+        font-size: 1rem;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .info-row i {
+        font-size: 1.2rem;
+    }
+
+    /* マップ情報のテキスト修正 */
+    .map-info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .map-info-item div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-info-item h4 {
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .map-info-item p {
+        margin: 0.5rem 0;
+        width: 100%;
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .map-info-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .map-info-card {
+        padding: 2rem 1rem;
+    }
+}
+
+/* タブレット向けの調整 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .split-container {
+        padding: 2rem;
+    }
+
+    .content-side {
+        padding: 2rem;
+    }
+
+    .diagonal-container {
+        padding: 2rem;
+    }
+
+    .access-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
@@ -914,4 +1204,189 @@
     .facility-main-content p {
         color: #666;
     }
+}
+
+/* デバイス表示制御 */
+.pc-only {
+    display: block;
+}
+
+.sp-only {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .pc-only {
+        display: none !important;
+    }
+
+    .sp-only {
+        display: block !important;
+    }
+}
+
+/* スマートフォン用のスタイル */
+.mobile-container {
+    width: 100%;
+    padding: 2rem 1rem;
+    background: var(--nurburgring-light);
+}
+
+.mobile-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mobile-access-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mobile-access-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-access-card .access-icon {
+    margin: 0 auto 1.5rem;
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+}
+
+.mobile-access-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--nurburgring-dark);
+}
+
+.mobile-access-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mobile-access-card li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.mobile-access-info {
+    background: var(--nurburgring-dark);
+    color: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-access-info .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.mobile-access-info .info-row i {
+    font-size: 1.2rem;
+    color: var(--nurburgring-red);
+}
+
+/* PCのアクセス情報セクションのスタイルを維持 */
+.diagonal-container {
+    display: flex;
+    position: relative;
+    min-height: 600px;
+}
+
+.diagonal-content {
+    flex: 1;
+    padding: 4rem;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.diagonal-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 200px;
+    height: 100%;
+    background: white;
+    transform: skewX(-15deg);
+    z-index: -1;
+}
+
+.diagonal-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.full-width-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.access-card {
+    background: var(--nurburgring-light);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.access-card:hover {
+    transform: translateY(-5px);
+}
+
+.access-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--nurburgring-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.access-info-box {
+    grid-column: span 2;
+    background: var(--nurburgring-dark);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.info-row i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
 } 
