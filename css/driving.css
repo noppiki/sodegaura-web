@@ -1,0 +1,212 @@
+/* 
+ * driving.css
+ * 袖ケ浦フォレストレースウェイのドライビングページ用スタイル
+ */
+
+/* ヒーローセクション */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    padding-top: 120px; /* ヘッダーの高さ分を確保 */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../images/start.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: -120px; /* ヘッダーの高さ分を相殺 */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    margin-top: 60px; /* コンテンツを少し下げる */
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+}
+
+/* コンテンツセクション共通 */
+.content-section {
+    padding: 5rem 0;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* カードスタイル */
+.content-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-header i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* ボタンスタイル */
+.btn-primary {
+    display: inline-block;
+    background: #e63946;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: #c1121f;
+}
+
+/* 背景色バリエーション */
+.bg-light {
+    background: #f8f9fa;
+}
+
+/* 予約フォームセクション */
+.booking-section {
+    background: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+}
+
+.booking-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.booking-description {
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-card {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.content-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.content-card:nth-child(3) {
+    animation-delay: 0.4s;
+} 
