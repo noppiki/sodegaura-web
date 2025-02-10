@@ -23,7 +23,36 @@
 
 /* メインコンテンツ */
 .main-content {
-    margin-top: 120px;
+    margin-top: 0;
+}
+
+/* ヒーローセクション */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--nurburgring-white);
+    z-index: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('../images/hero-track.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ページヘッダー */
@@ -68,21 +97,20 @@
 
 .calendar-grid {
     width: 100%;
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     background: var(--nurburgring-white);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
 }
 
-.calendar-header {
+.calendar-header,
+.calendar-days {
     display: grid;
-    grid-template-columns: repeat(7, minmax(100px, 1fr));
-    gap: 1px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
     margin-bottom: 10px;
-    min-width: 700px;
 }
 
 .calendar-header div {
@@ -93,69 +121,67 @@
     border-bottom: 2px solid var(--nurburgring-red);
 }
 
-.calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(100px, 1fr));
-    gap: 1px;
-    min-width: 700px;
+.calendar-day {
+    position: relative;
+    aspect-ratio: 0.8;
 }
 
-.calendar-day {
-    min-height: 100px;
+.calendar-day-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 8px;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 5px;
-    position: relative;
+    align-items: flex-start;
 }
 
-.calendar-day.inactive {
+.calendar-day.inactive .calendar-day-content {
     background-color: #f8f9fa;
     color: #ccc;
 }
 
 .calendar-day .day-number {
-    font-size: 1.1em;
+    font-size: 1em;
+    font-weight: normal;
+    color: var(--nurburgring-text);
+    width: 100%;
+    text-align: left;
+    line-height: 1;
+    margin: 0;
+    padding: 4px 8px;
+}
+
+.calendar-day.has-event .calendar-day-content {
+    background-color: #fef2f2;
+    border-color: var(--nurburgring-red);
+}
+
+.calendar-day.has-event .day-number {
     font-weight: bold;
-    margin-bottom: 4px;
+    color: var(--nurburgring-red);
 }
 
 .calendar-day .event-summary {
+    width: 100%;
     font-size: 0.8em;
     color: var(--nurburgring-text);
     background: #fef2f2;
     border-radius: 3px;
-    padding: 2px 4px;
-    margin: 2px 0;
+    padding: 2px 8px;
+    margin-top: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.calendar-day .event-summary:hover {
-    background: #fee2e2;
-}
-
-.calendar-day .event-summary .event-time {
-    color: var(--nurburgring-red);
-    font-weight: bold;
-    margin-right: 4px;
 }
 
 .calendar-day.today {
     background-color: #f8f9fa;
     border: 2px solid var(--nurburgring-red);
-}
-
-.calendar-day.has-event {
-    background-color: #fef2f2;
-    border-color: var(--nurburgring-red);
-    cursor: pointer;
 }
 
 .event-indicator {
@@ -200,7 +226,7 @@
 }
 
 .grid-layout.four-column {
-    grid-template-columns: repeat(4, 1fr);
+    grid-layout: repeat(4, 1fr);
 }
 
 .card {
@@ -281,18 +307,26 @@
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .events-page {
-        padding-top: 80px;
+        padding-top: 0;
     }
 
     .calendar-grid {
         padding: 10px;
-        margin: 0 10px;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .calendar-header,
     .calendar-days {
-        min-width: unset;
-        grid-template-columns: repeat(7, minmax(40px, 1fr));
+        gap: 2px;
     }
 
     .calendar-header div {
@@ -300,17 +334,13 @@
         font-size: 0.8em;
     }
 
-    .calendar-day {
-        min-height: 60px;
+    .calendar-day .day-number {
+        font-size: 0.9em;
         padding: 4px;
     }
 
-    .calendar-day .day-number {
-        font-size: 0.9em;
-    }
-
     .calendar-day .event-summary {
-        font-size: 0.65em;
+        font-size: 0.7em;
         padding: 1px 2px;
     }
 
@@ -353,13 +383,8 @@
         margin: 0 15px;
     }
 
-    .calendar-header,
-    .calendar-days {
-        grid-template-columns: repeat(7, minmax(70px, 1fr));
-    }
-
     .calendar-day {
-        min-height: 80px;
+        height: 80px;
     }
 
     .calendar-day .event-summary {
@@ -566,4 +591,10 @@
         grid-template-columns: 1fr;
         padding: 10px;
     }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 } 

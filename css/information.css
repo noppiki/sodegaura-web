@@ -704,7 +704,7 @@
 .nav-items li {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
 }
 
 .nav-items li:not(:last-child)::after {
@@ -721,9 +721,11 @@
     color: var(--nurburgring-white);
     text-transform: uppercase;
     font-weight: bold;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-items a::before {

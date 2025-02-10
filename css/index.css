@@ -32,7 +32,7 @@ body {
 .nav-items li {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
 }
 
 .nav-items li:not(:last-child)::after {
@@ -49,9 +49,11 @@ body {
     color: var(--nurburgring-white);
     text-transform: uppercase;
     font-weight: bold;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-items a::before {
@@ -76,11 +78,17 @@ body {
 }
 
 /* メインビジュアル */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+    margin-top: 0;
+}
+
 .hero-slider {
     position: relative;
-    height: calc(100vh - 120px);
+    height: 100%;
     overflow: hidden;
-    margin-top: 120px;
 }
 
 .hero-image {
