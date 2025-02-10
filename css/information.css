@@ -1,0 +1,917 @@
+/* 情報ページ特有のスタイル */
+.info-hero {
+    height: 70vh;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-track.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nurburgring-white);
+    text-align: center;
+    padding-top: 100px;
+}
+
+.info-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.info-hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--nurburgring-red);
+}
+
+.info-hero p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--nurburgring-white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.info-section {
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--nurburgring-red);
+    opacity: 0.8;
+}
+
+.info-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.info-card {
+    background: var(--nurburgring-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--nurburgring-red);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.info-card:hover .info-image {
+    transform: scale(1.05);
+}
+
+.info-content {
+    padding: 2.5rem;
+}
+
+.info-title {
+    font-size: 2rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.info-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--nurburgring-red);
+}
+
+.info-text {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.info-list li:hover {
+    background-color: #f9f9f9;
+    padding-left: 1rem;
+}
+
+.info-label {
+    font-weight: bold;
+    color: var(--nurburgring-dark);
+    display: flex;
+    align-items: center;
+}
+
+.info-label i {
+    color: var(--nurburgring-red);
+    margin-right: 10px;
+}
+
+.info-value {
+    color: #666;
+}
+
+/* 施設カードのスタイル */
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.facility-card {
+    background: var(--nurburgring-white);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.facility-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--nurburgring-red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.facility-card:hover {
+    transform: translateY(-10px);
+}
+
+.facility-card:hover::after {
+    transform: scaleX(1);
+}
+
+.facility-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--nurburgring-red), #ff6b6b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: var(--nurburgring-white);
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(255, 59, 59, 0.3);
+}
+
+.facility-title {
+    font-size: 1.5rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 1.2rem;
+}
+
+.facility-description {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* マップセクションのスタイル */
+.map-section {
+    background: var(--nurburgring-white);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    margin-top: 2rem;
+}
+
+.map-info {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.map-info-card {
+    background: var(--nurburgring-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.map-info-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--nurburgring-red), #ff6b6b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--nurburgring-white);
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(255, 59, 59, 0.3);
+}
+
+.map-info-card h3 {
+    font-size: 1.8rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.map-info-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--nurburgring-red);
+}
+
+.map-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.map-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.map-info-item:hover {
+    background-color: #f8f8f8;
+}
+
+.map-info-item i {
+    font-size: 1.5rem;
+    color: var(--nurburgring-red);
+    margin-top: 0.5rem;
+}
+
+.map-info-item h4 {
+    font-size: 1.2rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 0.5rem;
+}
+
+.map-info-item p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1200px) {
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .info-hero {
+        height: 50vh;
+    }
+
+    .map-info-content {
+        gap: 1.5rem;
+    }
+
+    .map-info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+/* ヘッダースタイルのオーバーライド */
+.site-header {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+}
+
+.header-top {
+    background: var(--nurburgring-gray);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-nav {
+    padding: 0;
+    background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
+    border-bottom: 3px solid var(--nurburgring-red);
+}
+
+.logo {
+    width: 200px;
+    padding: 1rem 2rem;
+    background: var(--nurburgring-dark);
+}
+
+.nav-items li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-items li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-items a {
+    color: var(--nurburgring-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-items a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--nurburgring-red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-items a:hover {
+    color: var(--nurburgring-white);
+    background: rgba(227, 6, 19, 0.1);
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* モバイルメニューのスタイル */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nurburgring-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: color 0.3s;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--nurburgring-red);
+}
+
+@media screen and (max-width: 768px) {
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-items {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--nurburgring-dark);
+        flex-direction: column;
+        padding-top: 4rem;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-items.active {
+        left: 0;
+    }
+
+    .nav-items li {
+        width: 100%;
+    }
+
+    .nav-items a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        display: block;
+    }
+
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+}
+
+/* コース情報セクション */
+.course-info-section {
+    background: var(--nurburgring-light);
+    overflow: hidden;
+}
+
+.split-container {
+    display: flex;
+    min-height: 600px;
+}
+
+.image-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out;
+}
+
+.image-side:hover .parallax-image {
+    transform: scale(1.2);
+}
+
+.content-side {
+    flex: 1;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-specs {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.info-specs li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.info-specs li:hover {
+    transform: translateX(10px);
+}
+
+.spec-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--nurburgring-green);
+    color: white;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.spec-content {
+    flex: 1;
+}
+
+.spec-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.spec-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* アクセス情報セクション */
+.access-info-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.diagonal-container {
+    display: flex;
+    position: relative;
+    min-height: 600px;
+}
+
+.diagonal-content {
+    flex: 1;
+    padding: 4rem;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.diagonal-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 200px;
+    height: 100%;
+    background: white;
+    transform: skewX(-15deg);
+    z-index: -1;
+}
+
+.diagonal-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.full-width-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.access-card {
+    background: var(--nurburgring-light);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.access-card:hover {
+    transform: translateY(-5px);
+}
+
+.access-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--nurburgring-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.access-info-box {
+    grid-column: span 2;
+    background: var(--nurburgring-dark);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.info-row i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+/* 施設設備セクション */
+.facilities-section {
+    background: var(--nurburgring-light);
+    padding: 6rem 0;
+}
+
+.facilities-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* メインの施設カード */
+.facility-main-card {
+    position: relative;
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.facility-main-image {
+    height: 400px;
+    overflow: hidden;
+}
+
+.main-facility-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.facility-main-card:hover .main-facility-img {
+    transform: scale(1.05);
+}
+
+.facility-main-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: white;
+    padding: 3rem 2rem 2rem;
+}
+
+.facility-main-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.facility-main-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 主要施設グリッド */
+.major-facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.major-facility-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.major-facility-card:hover {
+    transform: translateY(-10px);
+}
+
+.facility-image-container {
+    height: 250px;
+    overflow: hidden;
+}
+
+.facility-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.major-facility-card:hover .facility-img {
+    transform: scale(1.1);
+}
+
+.facility-content {
+    padding: 2rem;
+}
+
+.facility-content h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--nurburgring-dark);
+}
+
+.facility-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 補助施設グリッド */
+.support-facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.support-facility-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.support-facility-card .facility-image-container {
+    height: 100%;
+}
+
+.facility-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.support-facility-card:hover .facility-overlay {
+    opacity: 1;
+}
+
+.support-facility-card:hover .facility-img {
+    transform: scale(1.1);
+}
+
+.facility-overlay h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.facility-overlay p {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.facility-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--nurburgring-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1024px) {
+    .major-facilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-main-image {
+        height: 300px;
+    }
+
+    .support-facilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-main-content {
+        position: relative;
+        background: white;
+        color: var(--nurburgring-dark);
+    }
+
+    .facility-main-content p {
+        color: #666;
+    }
+} 

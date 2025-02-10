@@ -1,0 +1,445 @@
+/* カラー変数の定義 */
+:root {
+    --nurburgring-white: #ffffff;
+    --nurburgring-red: #e10600;
+    --nurburgring-dark: #1a1a1a;
+    --nurburgring-light: #f5f5f5;
+    --nurburgring-gray: #2a2a2a;
+    --nurburgring-text: #333333;
+    --nurburgring-text-light: #666666;
+}
+
+/* 共通スタイル */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--nurburgring-white);
+    color: var(--nurburgring-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダースタイル */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+}
+
+.header-top {
+    background: var(--nurburgring-gray);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.weather-info, .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 1rem;
+}
+
+.lang-switch a {
+    color: var(--nurburgring-white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.lang-switch a.active {
+    color: var(--nurburgring-red);
+}
+
+.main-nav {
+    padding: 0;
+    background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
+    border-bottom: 3px solid var(--nurburgring-red);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    padding: 1rem 2rem;
+    background: var(--nurburgring-dark);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-items {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-items li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-items a {
+    color: var(--nurburgring-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.nav-items a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--nurburgring-red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-items a:hover {
+    color: var(--nurburgring-white);
+    background: rgba(227, 6, 19, 0.1);
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* セクションヘッダー */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--nurburgring-dark);
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--nurburgring-red);
+}
+
+/* ボタンスタイル */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--nurburgring-red);
+    color: var(--nurburgring-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--nurburgring-white);
+}
+
+.btn.secondary:hover {
+    background-color: var(--nurburgring-white);
+    color: var(--nurburgring-dark);
+}
+
+/* フッター */
+.site-footer {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2rem;
+}
+
+/* モバイルメニュー */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--nurburgring-white);
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .header-top {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-items {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--nurburgring-dark);
+        flex-direction: column;
+        padding: 6rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-items.active {
+        right: 0;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+
+    .nav-items li:not(:last-child)::after {
+        display: none;
+    }
+
+    .nav-items a {
+        padding: 1rem 0;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+/* 共通レイアウト */
+.grid-layout {
+    display: grid;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.grid-layout.three-column {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.grid-layout.four-column {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* カードスタイル */
+.card {
+    background: var(--nurburgring-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--nurburgring-text);
+}
+
+.card-text {
+    color: var(--nurburgring-text-light);
+    margin-bottom: 15px;
+}
+
+/* セクションスタイル */
+.section {
+    padding: 60px 0;
+}
+
+.section.light {
+    background-color: var(--nurburgring-light);
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* ページヘッダー */
+.page-header {
+    background-size: cover;
+    background-position: center;
+    color: var(--nurburgring-white);
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.page-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* レスポンシブ対応の追加 */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 40px 0;
+    }
+
+    .grid-layout {
+        gap: 20px;
+    }
+
+    .grid-layout.three-column,
+    .grid-layout.four-column {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        padding: 30px 0;
+    }
+
+    .page-header h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .grid-layout.three-column {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.nav-disabled {
+    color: #999;
+    cursor: not-allowed;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+} 

@@ -1,0 +1,710 @@
+/* index.htmlのスタイル */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--nurburgring-white);
+    color: var(--nurburgring-dark);
+}
+
+/* ヘッダースタイルのオーバーライド */
+.site-header {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+}
+
+.header-top {
+    background: var(--nurburgring-gray);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-nav {
+    padding: 0;
+    background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
+    border-bottom: 3px solid var(--nurburgring-red);
+}
+
+.logo {
+    width: 200px;
+    padding: 1rem 2rem;
+    background: var(--nurburgring-dark);
+}
+
+.nav-items li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-items li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-items a {
+    color: var(--nurburgring-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-items a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--nurburgring-red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-items a:hover {
+    color: var(--nurburgring-white);
+    background: rgba(227, 6, 19, 0.1);
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* メインビジュアル */
+.hero-slider {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--nurburgring-white);
+    z-index: 2;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.hero-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.hero-btn.primary {
+    background: var(--nurburgring-red);
+    color: var(--nurburgring-white);
+}
+
+.hero-btn.secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--nurburgring-white);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--nurburgring-white);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+}
+
+/* フィーチャーセクション */
+.features {
+    padding: 4rem 2rem;
+    background: var(--nurburgring-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/upside.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--nurburgring-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    padding: 2rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--nurburgring-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--nurburgring-white);
+    font-size: 1.8rem;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.feature-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--nurburgring-red);
+    font-weight: bold;
+}
+
+.feature-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--nurburgring-red);
+    color: var(--nurburgring-white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.feature-btn:hover {
+    background: #b30000;
+}
+
+/* ニュースセクション */
+.news.nurburgring-style {
+    padding: 4rem 2rem;
+    background: var(--nurburgring-light);
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.news-item {
+    background: var(--nurburgring-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-date {
+    color: var(--nurburgring-red);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.news-title {
+    font-size: 1.5rem;
+    color: var(--nurburgring-dark);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.news-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.news-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--nurburgring-red);
+    text-decoration: none;
+    font-weight: bold;
+    transition: gap 0.3s;
+}
+
+.news-link:hover {
+    gap: 1rem;
+}
+
+.news-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.news-secondary .news-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.news-secondary .news-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+.news-secondary .news-content {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.news-secondary .news-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-secondary .news-date {
+    font-size: 0.9rem;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: var(--nurburgring-red);
+    color: var(--nurburgring-white);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* ライブカメラセクション */
+.live-cameras {
+    padding: 4rem 2rem;
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+}
+
+.live-cameras-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.camera-feeds {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.camera-feed {
+    position: relative;
+    background: var(--nurburgring-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.camera-feed-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.camera-title {
+    color: var(--nurburgring-white);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.camera-title i {
+    color: var(--nurburgring-red);
+}
+
+.camera-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.camera-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.camera-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: var(--nurburgring-white);
+}
+
+.camera-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* イベントセクション */
+.events-section {
+    padding: 4rem 2rem;
+    background: var(--nurburgring-white);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.event-card {
+    background: var(--nurburgring-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-content {
+    padding: 1.5rem;
+}
+
+.event-date {
+    color: var(--nurburgring-red);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: var(--nurburgring-dark);
+}
+
+.event-description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* SNSセクション */
+.social-section {
+    background: var(--nurburgring-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--nurburgring-white);
+}
+
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--nurburgring-white);
+    transition: transform 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--nurburgring-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.social-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.social-description {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* フッター */
+.site-footer {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+    padding: 3rem 2rem;
+}
+
+.footer-content {
+    border-bottom: 1px solid var(--nurburgring-gray);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.copyright {
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-secondary .news-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .news-secondary .news-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .news-secondary .news-content {
+        padding: 1rem 0 0 0;
+    }
+
+    .camera-feeds {
+        grid-template-columns: 1fr;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .nav-items {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--nurburgring-dark);
+        flex-direction: column;
+        padding-top: 4rem;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-items.active {
+        left: 0;
+    }
+
+    .nav-items li {
+        width: 100%;
+    }
+
+    .nav-items a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        display: block;
+    }
+} 

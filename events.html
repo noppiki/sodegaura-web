@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベント情報 - 袖ケ浦フォレストレースウェイ</title>
+    <meta name="description" content="袖ケ浦フォレストレースウェイで開催される各種モータースポーツイベント、ドライビングスクール、走行会などの情報をご案内します。">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ヘッダーナビゲーション -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="weather-info">
+                <span class="temperature">20°C</span>
+            </div>
+            <div class="contact-info">
+                <span class="phone">0438-75-7363</span>
+            </div>
+            <div class="lang-switch">
+                <a href="#" class="active">日本語</a>
+                <a href="#">English</a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/logo.png" alt="Sodegaura Forest Raceway">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="メニューを開く">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay"></div>
+            <ul class="nav-items">
+                <li><a href="information.html">INFORMATION</a></li>
+                <li><a href="events.html" class="active">EVENTS</a></li>
+                <li><span class="nav-disabled">DRIVING</span></li>
+                <li><span class="nav-disabled">FACILITIES</span></li>
+                <li><span class="nav-disabled">BUSINESS</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="events-page">
+        <div class="page-header">
+            <div class="container">
+                <h1>イベント情報</h1>
+                <p>袖ケ浦フォレストレースウェイで開催される各種イベントをご紹介します</p>
+            </div>
+        </div>
+
+        <section class="event-calendar section light">
+            <div class="container">
+                <h2>イベントカレンダー</h2>
+                <div class="calendar-navigation">
+                    <button class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                    <h3 class="current-month">2025年2月</h3>
+                    <button class="next-month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-header">
+                        <div>日</div>
+                        <div>月</div>
+                        <div>火</div>
+                        <div>水</div>
+                        <div>木</div>
+                        <div>金</div>
+                        <div>土</div>
+                    </div>
+                    <div class="calendar-days">
+                        <!-- カレンダーの内容はJavaScriptで動的に生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upcoming-events section">
+            <div class="container">
+                <h2>開催予定のイベント</h2>
+                
+                <!-- レース系イベント -->
+                <div class="event-category">
+                    <h3><i class="fas fa-flag-checkered"></i> レース系イベント</h3>
+                    <div class="event-list grid-layout three-column">
+                        <div class="card fade-in">
+                            <div class="card-image">
+                                <img src="./images/race-event.jpg" alt="スーパーGT特別戦">
+                                <span class="event-date">5月15日</span>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">スーパーGT特別戦</h4>
+                                <p class="card-text">国内外のトップドライバーたちによる白熱のレース</p>
+                                <ul>
+                                    <li><i class="far fa-clock"></i> 8:00 - 17:00</li>
+                                    <li><i class="fas fa-yen-sign"></i> 観戦チケット: ¥5,000〜</li>
+                                </ul>
+                                <a href="#" class="btn">詳細を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ドライビングスクール -->
+                <div class="event-category">
+                    <h3><i class="fas fa-graduation-cap"></i> ドライビングスクール</h3>
+                    <div class="event-list grid-layout three-column">
+                        <div class="card fade-in">
+                            <div class="card-image">
+                                <img src="./images/driving-school.jpg" alt="春季ドライビングスクール">
+                                <span class="event-date">6月1-2日</span>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">春季ドライビングスクール</h4>
+                                <p class="card-text">経験豊富なインストラクターによる2日間の集中講習</p>
+                                <ul>
+                                    <li><i class="far fa-clock"></i> 9:00 - 16:00</li>
+                                    <li><i class="fas fa-yen-sign"></i> 参加費: ¥50,000</li>
+                                </ul>
+                                <a href="#" class="btn">詳細を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 一般走行会 -->
+                <div class="event-category">
+                    <h3><i class="fas fa-car"></i> 一般走行会</h3>
+                    <div class="event-list grid-layout three-column">
+                        <div class="card fade-in">
+                            <div class="card-image">
+                                <img src="./images/track-day.jpg" alt="週末スポーツ走行">
+                                <span class="event-date">毎週末</span>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">週末スポーツ走行</h4>
+                                <p class="card-text">愛車でサーキット走行を楽しめる一般走行会</p>
+                                <ul>
+                                    <li><i class="far fa-clock"></i> 9:00 - 16:00</li>
+                                    <li><i class="fas fa-yen-sign"></i> 参加費: ¥25,000/日</li>
+                                </ul>
+                                <a href="#" class="btn">詳細を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="past-events section light">
+            <div class="container">
+                <h2>過去のイベント</h2>
+                <div class="archive-list grid-layout four-column">
+                    <!-- 過去のイベントカード -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- イベント詳細モーダル -->
+    <div class="event-modal">
+        <div class="modal-content">
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <div class="modal-header">
+                <h3></h3>
+            </div>
+            <div class="modal-body">
+                <dl class="event-info">
+                    <dt>日時</dt>
+                    <dd class="event-date"></dd>
+                    <dt>時間</dt>
+                    <dd class="event-time"></dd>
+                    <dt>料金</dt>
+                    <dd class="event-price"></dd>
+                    <dt>詳細</dt>
+                    <dd class="event-description"></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <!-- フッターナビゲーション -->
+            </div>
+            <div class="social-links">
+                <!-- SNSリンク -->
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Sodegaura Forest Raceway. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/events.js"></script>
+</body>
+</html> 
