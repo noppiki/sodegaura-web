@@ -10,6 +10,8 @@ body {
 .site-header {
     background: var(--nurburgring-dark);
     color: var(--nurburgring-white);
+    position: relative;
+    z-index: 100;
 }
 
 .header-top {
@@ -74,8 +76,9 @@ body {
 /* メインビジュアル */
 .hero-slider {
     position: relative;
-    height: 80vh;
+    height: calc(100vh - 120px);
     overflow: hidden;
+    margin-top: 120px;
 }
 
 .hero-image {

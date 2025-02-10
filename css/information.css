@@ -678,6 +678,8 @@
 .site-header {
     background: var(--nurburgring-dark);
     color: var(--nurburgring-white);
+    position: relative;
+    z-index: 100;
 }
 
 .header-top {
@@ -1388,4 +1390,9 @@
 .info-row i {
     margin-right: 1rem;
     font-size: 1.2rem;
+}
+
+/* メインコンテンツ */
+.main-content {
+    margin-top: 120px;
 } 

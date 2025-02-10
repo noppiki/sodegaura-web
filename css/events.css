@@ -1,8 +1,16 @@
 /* イベントページのスタイル */
 
+/* ヘッダースタイルのオーバーライド */
+.site-header {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+    position: relative;
+    z-index: 100;
+}
+
 /* メインコンテンツ */
-.events-page {
-    padding-top: 120px; /* ヘッダーの高さ分を確保 */
+.main-content {
+    margin-top: 120px;
 }
 
 /* ページヘッダー */

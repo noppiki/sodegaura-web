@@ -511,4 +511,17 @@
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+/* ヘッダースタイルのオーバーライド */
+.site-header {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+    position: relative;
+    z-index: 100;
+}
+
+/* メインコンテンツ */
+.main-content {
+    margin-top: 120px;
 } 
