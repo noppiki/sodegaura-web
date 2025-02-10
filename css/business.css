@@ -14,12 +14,14 @@
 .header-top {
     background: var(--nurburgring-gray);
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 40px;
 }
 
 .main-nav {
     padding: 0;
     background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
     border-bottom: 3px solid var(--nurburgring-red);
+    height: 80px;
 }
 
 .nav-items li {
@@ -334,4 +336,9 @@
 
 .content-card:nth-child(3) {
     animation-delay: 0.4s;
+}
+
+/* メインコンテンツ */
+.main-content {
+    margin-top: 120px;
 } 
