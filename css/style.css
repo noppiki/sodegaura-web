@@ -30,6 +30,7 @@ body {
     z-index: 1000;
     background: var(--nurburgring-dark);
     color: var(--nurburgring-white);
+    position: relative;
 }
 
 .header-top {
@@ -41,6 +42,7 @@ body {
     align-items: center;
     gap: 2rem;
     font-size: 0.9rem;
+    height: 40px;
 }
 
 .weather-info, .contact-info {
@@ -71,20 +73,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px;
 }
 
 /* ロゴスタイル */
 .logo {
     width: 300px;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     background: var(--nurburgring-dark);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo img {
     width: 100%;
     height: auto;
     display: block;
+    max-height: 60px;
+    object-fit: contain;
 }
 
 .nav-items {
@@ -93,12 +101,14 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .nav-items li {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-items li:not(:last-child)::after {
@@ -115,11 +125,14 @@ body {
     color: var(--nurburgring-white);
     text-transform: uppercase;
     font-weight: bold;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     text-decoration: none;
     transition: all 0.3s;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav-items a::before {
