@@ -3,6 +3,142 @@
  * 袖ケ浦フォレストレースウェイのビジネスページ用スタイル
  */
 
+/* ヘッダースタイルのオーバーライド */
+.site-header {
+    background: var(--nurburgring-dark);
+    color: var(--nurburgring-white);
+}
+
+.header-top {
+    background: var(--nurburgring-gray);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-nav {
+    padding: 0;
+    background: linear-gradient(to bottom, var(--nurburgring-dark), var(--nurburgring-gray));
+    border-bottom: 3px solid var(--nurburgring-red);
+}
+
+.nav-items li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-items li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-items a {
+    color: var(--nurburgring-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+.nav-items a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--nurburgring-red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-items a:hover {
+    color: var(--nurburgring-white);
+    background: rgba(227, 6, 19, 0.1);
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* モバイルメニューのスタイル */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nurburgring-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: color 0.3s;
+}
+
+.mobile-menu-btn:hover {
+    color: var(--nurburgring-red);
+}
+
+@media screen and (max-width: 768px) {
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-items {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--nurburgring-dark);
+        flex-direction: column;
+        padding: 6rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-items.active {
+        right: 0;
+    }
+
+    .nav-items li {
+        width: 100%;
+    }
+
+    .nav-items a {
+        padding: 1rem 0;
+        width: 100%;
+        display: block;
+    }
+
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+}
+
 /* ヒーローセクション */
 .hero-section {
     position: relative;
