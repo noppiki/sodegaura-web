@@ -1222,7 +1222,7 @@
 }
 
 /* タブレット縦持ちとスマホ表示のメディアクエリ */
-@media screen and (max-width: 768px), (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media screen and (max-width: 768px), (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
     .pc-only {
         display: none;
     }
