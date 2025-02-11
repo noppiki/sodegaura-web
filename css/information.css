@@ -932,11 +932,11 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -200px;
-    width: 300px;
+    right: -50px;
+    width: 400px;
     height: 100%;
     background: white;
-    transform: skewX(-15deg);
+    transform: skewX(-15deg) translateX(-100px);
     z-index: -1;
 }
 
@@ -1326,11 +1326,11 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -200px;
-    width: 300px;
+    right: -50px;
+    width: 400px;
     height: 100%;
     background: white;
-    transform: skewX(-15deg);
+    transform: skewX(-15deg) translateX(-100px);
     z-index: -1;
 }
 
