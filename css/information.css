@@ -1326,8 +1326,8 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -50px;
-    width: 400px;
+    right: -200px;
+    width: 600%;
     height: 100%;
     background: white;
     transform: skewX(-15deg) translateX(-100px);
