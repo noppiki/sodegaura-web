@@ -932,8 +932,8 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -100px;
-    width: 200px;
+    right: -200px;
+    width: 300px;
     height: 100%;
     background: white;
     transform: skewX(-15deg);
@@ -1211,24 +1211,22 @@
     }
 }
 
-/* PC/タブレット横向き表示用のクラス */
+/* デバイス表示制御 */
 .pc-only {
     display: block;
 }
 
-/* スマホ/タブレット縦向き表示用のクラス */
 .sp-only {
     display: none;
 }
 
-/* タブレット縦持ちとスマホ表示のメディアクエリ */
-@media screen and (max-width: 768px), (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+@media screen and (max-width: 768px) {
     .pc-only {
-        display: none;
+        display: none !important;
     }
-    
+
     .sp-only {
-        display: block;
+        display: block !important;
     }
 }
 
@@ -1328,8 +1326,8 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -100px;
-    width: 200px;
+    right: -200px;
+    width: 300px;
     height: 100%;
     background: white;
     transform: skewX(-15deg);
