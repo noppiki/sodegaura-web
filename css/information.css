@@ -1211,22 +1211,24 @@
     }
 }
 
-/* デバイス表示制御 */
+/* PC/タブレット横向き表示用のクラス */
 .pc-only {
     display: block;
 }
 
+/* スマホ/タブレット縦向き表示用のクラス */
 .sp-only {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+/* タブレット縦持ちとスマホ表示のメディアクエリ */
+@media screen and (max-width: 768px), (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .pc-only {
-        display: none !important;
+        display: none;
     }
-
+    
     .sp-only {
-        display: block !important;
+        display: block;
     }
 }
 
