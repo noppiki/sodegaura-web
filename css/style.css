@@ -9,9 +9,18 @@
     --nurburgring-text-light: #666666;
 }
 
+/* 追加: グローバルリセット */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 /* 共通スタイル */
 body {
     margin: 0;
+    padding: 0; /* bodyのpaddingを0に設定 */
     font-family: Arial, sans-serif;
     background-color: var(--nurburgring-white);
     color: var(--nurburgring-dark);
